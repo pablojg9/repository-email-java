@@ -13,7 +13,10 @@ public class AppTest {
         properties.put("mail.smtp.starttls", "true"); // Autenticação
         properties.put("mail.smtp.host", "stmp.gmail.com"); //Servidor gmail Google
         properties.put("mail.smtp.port", "465"); // Porta do servidor
-        properties.put("mail.smtp.socketFactory.port", "465");
+        properties.put("mail.smtp.socketFactory.port", "465"); // Espeficifa a porta do Socket
+        properties.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory"); // Classe do Socket de conexão ao SMTP.
+
+
 
 
 
