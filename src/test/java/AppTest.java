@@ -1,8 +1,14 @@
 import org.junit.Test;
 
-import javax.mail.*;
+import javax.mail.Session;
+import javax.mail.Authenticator;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Address;
+import javax.mail.Message;
+import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+
 import java.util.Properties;
 
 public class AppTest {
