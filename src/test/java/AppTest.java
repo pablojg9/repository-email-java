@@ -17,7 +17,7 @@ public class AppTest {
 
             properties.put("mail.smtp.auth", "true"); //Autorização
             properties.put("mail.smtp.starttls", "true"); // Autenticação
-            properties.put("mail.smtp.host", "stmp.gmail.com"); //Servidor gmail Google
+            properties.put("mail.smtp.host", "smtp.gmail.com"); //Servidor gmail Google
             properties.put("mail.smtp.port", "465"); // Porta do servidor
             properties.put("mail.smtp.socketFactory.port", "465"); // Espeficifa a porta do Socket
             properties.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory"); // Classe do Socket de conexão ao SMTP.
@@ -33,7 +33,12 @@ public class AppTest {
 
             Message message = new MimeMessage(session);
 
-            message.setFrom(new InternetAddress(user));
+            message.setFrom(new InternetAddress(user)); //Quem está enviando
+            message.setRecipients(Message.RecipientType.TO, toUser);
+            message.setSubject("Chegou email enviado com java");
+            message.setText("Messagem enviado com java. Você acabou de receber um email enviado pelo developer @pablojg9");
+
+            Transport.send(message);
 
         } catch (Exception e) {
             e.printStackTrace();
