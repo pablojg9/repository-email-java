@@ -12,8 +12,8 @@ import javax.mail.PasswordAuthentication;
 import java.util.Properties;
 
 public class EmailSend {
-    private static final String USER = "pablodeveloper2@gmail.com";
-    private static final String PASSWORD = "";
+    private static final String USER = ""; //Coloque seu email
+    private static final String PASSWORD = ""; //Password
 
     private String listDestinatarios = "";
     private String nameRemetente = "";
