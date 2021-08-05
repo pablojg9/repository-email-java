@@ -15,16 +15,16 @@ public class EmailSend {
     private static final String USER = ""; //Coloque seu email
     private static final String PASSWORD = ""; //Password
 
-    private String listDestinatarios = "";
-    private String nameRemetente = "";
-    private String assuntoEmail = "";
-    private String textoEmail = "";
+    private String recipientList = "";
+    private String roomRemetente = "";
+    private String subjectEmail  = "";
+    private String textEmail    = "";
 
-    public EmailSend(String listDestinatarios, String nameRemetente, String assuntoEmail, String textoEmail) {
-        this.listDestinatarios = listDestinatarios;
-        this.nameRemetente = nameRemetente;
-        this.assuntoEmail = assuntoEmail;
-        this.textoEmail = textoEmail;
+    public EmailSend(String recipientList, String nameRemetente, String assuntoEmail, String textoEmail) {
+        this.recipientList = recipientList;
+        this.roomRemetente = roomRemetente;
+        this.subjectEmail = subjectEmail;
+        this.textEmail = textoEmail;
     }
 
     public void sendEmail() {
@@ -46,13 +46,13 @@ public class EmailSend {
                 }
             });
 
-            Address[] toUser = InternetAddress.parse(listDestinatarios);
+            Address[] toUser = InternetAddress.parse(recipientList);
 
             Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress(USER, nameRemetente));
+            message.setFrom(new InternetAddress(USER, roomRemetente));
             message.setRecipients(Message.RecipientType.TO, toUser);
-            message.setSubject(assuntoEmail);
-            message.setText(textoEmail);
+            message.setSubject(subjectEmail);
+            message.setText(textEmail);
 
             Transport.send(message);
 
