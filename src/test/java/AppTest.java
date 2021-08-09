@@ -5,14 +5,19 @@ public class AppTest {
 
   @Test
     public void testEmail() {
+
+      StringBuilder stringBuilder = new StringBuilder();
+
+      stringBuilder.append("testando html");
+
         try {
             EmailSend emailSend = new EmailSend(
                     "pablodeveloper2@gmail.com",
                     "Pablo Junior",
                     "Projeto feito em java",
-                    "Projeto feito em java com dependencia em javax mail developer pablo junior ");
+                    stringBuilder.toString());
 
-            emailSend.sendEmail();
+            emailSend.sendEmail(true);
 
         } catch (Exception e){
             e.printStackTrace();

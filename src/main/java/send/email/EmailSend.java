@@ -20,14 +20,14 @@ public class EmailSend {
     private String subjectEmail  = "";
     private String textEmail    = "";
 
-    public EmailSend(String recipientList, String nameRemetente, String assuntoEmail, String textoEmail) {
+    public EmailSend(String recipientList, String roomRemetente, String subjectEmail, String textoEmail) {
         this.recipientList = recipientList;
         this.roomRemetente = roomRemetente;
         this.subjectEmail = subjectEmail;
         this.textEmail = textoEmail;
     }
 
-    public void sendEmail() {
+    public void sendEmail(boolean sendHtml) {
         try{
             Properties properties = new Properties();
 
@@ -53,6 +53,12 @@ public class EmailSend {
             message.setRecipients(Message.RecipientType.TO, toUser);
             message.setSubject(subjectEmail);
             message.setText(textEmail);
+
+            if (sendHtml) {
+                message.setContent(textEmail, "text/html; charset=utf-8");
+            } else {
+                message.setText(textEmail);
+            }
 
             Transport.send(message);
 
